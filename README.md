@@ -15,6 +15,10 @@ You speak, type, or paste a chat. An AI *directs* it into a dramatic scene and
 ![Silk TTS](https://img.shields.io/badge/Voice-Rumik%20Silk-FF4D7D)
 ![Status](https://img.shields.io/badge/demo-live-22c55e)
 
+<br />
+
+<img src="assets/demo.png" alt="SCENE — AI-directed emotional cinema" width="100%" />
+
 </div>
 
 ---

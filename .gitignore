@@ -11,6 +11,7 @@ __pycache__/
 # ── Scratch / test artifacts (not for the repo) ──
 *.wav
 *.png
+!assets/demo.png
 ideas.txt
 resp.json
 *.log
