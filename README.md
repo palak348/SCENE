@@ -1,77 +1,117 @@
-# 🎬 SCENE — AI-directed emotional cinema
+<div align="center">
 
-> **Har baat ek scene hai.** Turn any line, voice note, or chat screenshot into a
-> dramatic cinematic performance — voiced with emotional Hinglish by **Rumik's Silk** TTS.
+# 🎬 SCENE
 
-SCENE listens to ordinary speech / text / a chat screenshot, and an AI *directs* it
-into an over-the-top emotional scene, then **performs** it as a cinematic voice clip —
-with a live waveform, mood-reactive lighting, and word-by-word captions.
+### Har baat ek scene hai.
+
+**SCENE turns any boring line, voice note, or chat screenshot into an AI-directed
+cinematic performance — voiced with real emotion in Hinglish.**
+You speak, type, or paste a chat. An AI *directs* it into a dramatic scene and
+**performs it out loud** — like a movie, not a chatbot.
+
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-3.5%20Flash-8E75FF?logo=googlegemini&logoColor=white)
+![Silk TTS](https://img.shields.io/badge/Voice-Rumik%20Silk-FF4D7D)
+![Status](https://img.shields.io/badge/demo-live-22c55e)
+
+</div>
 
 ---
 
-## How it works
+## ⚡ See it in one example
+
+> **You say:** *"tum badal gaye ho"*
+>
+> **SCENE performs (in Silk's emotional Hinglish voice):**
+> *`<gasp>` Tum... tum badal gaye ho? `<cry>` Wahi aankhein, wahi muskaan...
+> par woh insaan ab yahan nahi hai. `<angry>` Kis cheez ne tumhe itna badal diya?!
+> `<whisper>` ...ya shayad, main hi kabhi tumhe jaanti hi nahi thi.*
+
+A flat sentence becomes a 10-second cinematic moment — gasp, heartbreak, anger,
+a whispered twist — performed aloud. **That's the whole product.**
+
+---
+
+## 🎯 The problem & why SCENE
+
+Text-to-speech today sounds like a robot reading — especially in **Hinglish**, where
+most voices fumble the Hindi words and flatten all emotion. So AI voice feels
+*functional*, never *felt*.
+
+**SCENE flips that.** Built on **Rumik's Silk** (a Hinglish-native, emotion-rich TTS),
+it doesn't just *read* text — it **acts** it. The result is shareable, emotional,
+GenZ-native entertainment: your everyday lines, performed like cinema.
+
+## ✨ Features
+
+- 🎙️ **Three ways in** — speak, type, or **paste a chat screenshot** (it acts out the conversation).
+- 🎭 **AI director, not a chatbot** — Gemini rewrites your input into a real dramatic scene with emotion cues.
+- 🔊 **Emotional Hinglish voice** — performed by Silk: gasps, anger, tears, whispers — mid-sentence.
+- 🌌 **Cinematic player** — live waveform, mood-reactive lighting, and single-line captions (audio-first, no text walls).
+- 🛟 **Never breaks on stage** — auto-rotates Gemini models on quota/limits, and falls back to a browser voice if needed.
+- 🇮🇳 **Made for how India actually talks** — code-mixed Hinglish, in Roman script.
+
+## 🧠 How it works
 
 ```
 🎙️ voice  /  ⌨️ text  /  📷 chat screenshot
         │
         ▼
-   Gemini  →  writes the dramatic Hinglish scene (with emotion tags)
+   Gemini  ──►  directs it into a dramatic Hinglish scene (with emotion tags)
         │
         ▼
-   Silk (Rumik)  →  performs it as expressive Hinglish speech
+   Silk (Rumik)  ──►  performs it as expressive Hinglish speech
         │
         ▼
-   🔊 cinematic player — waveform · captions · emotion lighting
+   🔊  cinematic player — waveform · emotion lighting · captions
 ```
 
-- **Ears + Director:** Gemini hears the audio / reads the text or screenshot and writes
-  the scene, tagging emotion (`<gasp>`, `<angry>`, `<cry>`, `<whisper>`…).
-- **Voice:** Silk (`mulberry`) turns that tagged script into emotional Hinglish audio.
-- **Experience:** an audio-first cinematic player — not a wall of text.
+- **Director (ears + brain):** Gemini understands your audio / text / screenshot and writes the scene.
+- **Performer (voice):** Silk `mulberry` turns the tagged script into emotional Hinglish audio.
+- **Stage (experience):** an audio-first player that lights up and reacts to the performance.
 
----
-
-## Run it locally
+## 🚀 Quick start
 
 ```bash
-# 1. setup
 python -m venv .venv
-.venv\Scripts\activate          # Windows
+.venv\Scripts\activate            # Windows  (use: source .venv/bin/activate on macOS/Linux)
 pip install -r requirements.txt
 
-# 2. add your keys
-copy .env.example .env          # then edit .env and paste your keys
-
-# 3. run
+copy .env.example .env            # then open .env and paste your two keys
 uvicorn server:app --reload
 ```
 
-Open **http://localhost:8000** in Chrome or Edge.
+Open **http://localhost:8000** in **Chrome or Edge**, and either tap a sample line,
+type one, hold the mic, or paste a chat screenshot.
 
-You need two keys in `.env`:
-- `GEMINI_API_KEY` — free from https://aistudio.google.com
-- `SILK_API_KEY` — from Rumik's Silk dashboard
+**Keys needed in `.env`:**
+| Key | Where to get it |
+|-----|-----------------|
+| `GEMINI_API_KEY` | free at [aistudio.google.com](https://aistudio.google.com) |
+| `SILK_API_KEY` | Rumik's Silk dashboard |
 
----
+## 🛠️ Tech stack
 
-## Tech
+- **Backend:** Python · FastAPI · Google **Gemini** (audio + text + vision) · **Silk** TTS
+- **Frontend:** vanilla HTML / CSS / JS — atmospheric cinematic UI, `<canvas>` waveform,
+  emotion-reactive lighting (no framework, zero build step)
+- **Reliability:** Gemini model auto-rotation + browser-voice fallback
 
-- **Backend:** Python · FastAPI · Google Gemini (audio + text + vision) · Silk TTS
-- **Frontend:** vanilla HTML / CSS / JS — atmospheric cinematic UI, live `<canvas>`
-  waveform, reactive mood lighting, no framework overhead
-- **Resilience:** automatic Gemini model-rotation on quota/access limits, and a
-  browser-voice fallback if Silk is unavailable — the demo never goes silent.
-
-## Project layout
+## 📁 Structure
 
 ```
-server.py          FastAPI: /chat (voice) · /dramatize-text · /dramatize-image · Silk
-systemprompt.md    the "director" prompt (edit to change behaviour — no restart)
-static/            index.html · app.js · style.css
+server.py          FastAPI — /chat (voice) · /dramatize-text · /dramatize-image · Silk call
+systemprompt.md    the "director" prompt (edit to change behaviour — reloads live)
+static/            index.html · app.js · style.css   (the cinematic frontend)
 .env.example       copy to .env and add your keys
 requirements.txt
 ```
 
 ---
 
-Built for **Rumik AI's Silk hackathon**.
+<div align="center">
+
+Built for **Rumik AI's Silk hackathon** · *Ordinary lines. Cinematic emotion.*
+
+</div>
