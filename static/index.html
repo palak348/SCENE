@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCENE · AI-directed emotional cinema</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Atmosphere -->
+  <div class="atmos">
+    <span class="leak leak-1"></span>
+    <span class="leak leak-2"></span>
+    <span class="leak leak-mood"></span>
+    <div class="haze"></div>
+    <div class="particles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="wordmark">SCENE</div>
+  <div class="corner-note">AI-DIRECTED EMOTIONAL CINEMA</div>
+
+  <!-- Composed two-column cinematic layout -->
+  <div class="grid">
+    <!-- LEFT — hero -->
+    <section class="hero">
+      <h1 class="headline">Har baat<br /><span class="grad">ek scene</span> hai.</h1>
+      <p class="tagline">Your conversations, performed like cinema.</p>
+      <div class="prompts" id="prompts">
+        <button class="prompt" data-text="tum badal gaye ho">tum badal gaye ho</button>
+        <button class="prompt" data-text="kal assignment submit karna hai">kal assignment submit karna hai</button>
+        <button class="prompt" data-text="main raste me hu">main raste me hu</button>
+        <button class="prompt" data-text="K.">K.</button>
+      </div>
+    </section>
+
+    <!-- RIGHT — the performance stage -->
+    <section class="stage" id="stage">
+      <div class="stage-glow"></div>
+      <div class="stage-label" id="nowTag">PERFORMANCE STAGE</div>
+      <div class="scene-heard" id="sceneHeard"></div>
+      <div class="caption" id="caption">Press the mic, pick a line, ya ek chat paste karo.</div>
+
+      <div class="player">
+        <button class="play-btn" id="playBtn" type="button" aria-label="Play or pause"><span id="playIco">►</span></button>
+        <canvas class="waveform" id="waveform" width="900" height="150"></canvas>
+        <div class="time" id="time">0:00</div>
+      </div>
+
+      <div class="composer">
+        <button id="shot" class="ctrl" type="button" title="Drop a chat screenshot (or Ctrl+V)">📷</button>
+        <input id="text" class="text-input" type="text" autocomplete="off" placeholder="Type a line…" />
+        <button id="send" class="ctrl send" type="button" title="Perform">➤</button>
+        <button id="talk" class="mic" type="button" title="Hold to perform"><span class="mic-ring"></span><span class="mic-ico">🎙️</span></button>
+        <button id="reset" class="ctrl reset" type="button" title="New scene">↺</button>
+        <input id="file" type="file" accept="image/*" hidden />
+      </div>
+
+      <div class="scene-status" id="status"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

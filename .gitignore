@@ -1,0 +1,29 @@
+# ── Secrets — NEVER commit ──
+.env
+*.key
+
+# ── Python ──
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# ── Scratch / test artifacts (not for the repo) ──
+*.wav
+*.png
+ideas.txt
+resp.json
+*.log
+
+# ── Internal planning / proprietary docs (keep local only) ──
+PLAN.md
+HACKATHON_PLAN.md
+doc.txt
+systemprompt-sales.md
+MEMORY.md
+
+# ── OS / editor ──
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
